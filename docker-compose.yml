@@ -8,8 +8,10 @@ services:
       MYSQL_DATABASE: testdb
 
   web:
-    image: nginx:alpine
+    image: nginx:latest
     ports:
       - "8080:80"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html
     depends_on:
       - db
